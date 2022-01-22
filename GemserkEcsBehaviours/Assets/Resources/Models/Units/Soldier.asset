@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37f04f44afe5b654a86e1703c1e9efa8, type: 3}
+  m_Name: Soldier
+  m_EditorClassIdentifier: 
+  _shadowSize: 0
+  _hasShadow: 1
+  _isProjectile: 1
+  _animations:
+  - name: Idle
+    fps: 30
+    frames:
+    - {fileID: -1674950760, guid: d44f0a2c20d3d9545a70d41cae7b0ee7, type: 3}
+    events: []
+  _attachPoints: []

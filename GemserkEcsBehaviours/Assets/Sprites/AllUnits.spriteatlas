@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AllUnits
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 29bcc322be138cb48ac030ce17c0ce0a, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: f4ceb8104e8b3924582f82ac5b2a699f, type: 3}
+  - {fileID: 21300000, guid: fec71dc0e417bf444a5270cab2efd68e, type: 3}
+  - {fileID: 21300000, guid: bc6910e10398ceb4085f4b642d77e2a8, type: 3}
+  - {fileID: 21300000, guid: 4ba6144286c78974280c12cc27f26985, type: 3}
+  - {fileID: 21300000, guid: 0f6079c2cc826da4b9842b3a5ec7882b, type: 3}
+  - {fileID: 21300000, guid: 7a1b2143ca85d7140ba2f56bf0043c3f, type: 3}
+  - {fileID: 21300000, guid: 3a7e04d5bad664e47b87ccb730840a99, type: 3}
+  - {fileID: 21300000, guid: c45c5ba65100428449e50a196a82fe3e, type: 3}
+  - {fileID: 21300000, guid: fd6d4e976e750a4489e5222de9a23957, type: 3}
+  - {fileID: 21300000, guid: 550a173880a69cd44bab040edda4fbff, type: 3}
+  - {fileID: 21300000, guid: 6548aef803c689f4499db5777fb06867, type: 3}
+  - {fileID: 21300000, guid: 3791bf891b86b7843a79afaeea64a017, type: 3}
+  - {fileID: 21300000, guid: 00cc84a9640165f41a5aa8bb168e3b9c, type: 3}
+  - {fileID: 21300000, guid: c3e515f93d32f71448af11e0211b7fda, type: 3}
+  - {fileID: 21300000, guid: d9bc363a03bc6c444acae2db753b73c0, type: 3}
+  - {fileID: 21300000, guid: f1b71e6a8c2fa7347a80cf9020de4e86, type: 3}
+  - {fileID: 21300000, guid: da7791caa11ee354ca8ab86f89219bca, type: 3}
+  - {fileID: 21300000, guid: 88df254b25e4c3946b745d59096027f2, type: 3}
+  - {fileID: 21300000, guid: cbaf7b4b0e48fff48809594c01ec7858, type: 3}
+  - {fileID: 21300000, guid: 025e306bbcdff1844a7430d2d42a5418, type: 3}
+  - {fileID: 21300000, guid: f81ef21c70f11d04b9bc5f62e6e6cb37, type: 3}
+  - {fileID: 21300000, guid: d44f0a2c20d3d9545a70d41cae7b0ee7, type: 3}
+  - {fileID: 21300000, guid: e5e4a5bcc0334c24888359e6b940c7c4, type: 3}
+  - {fileID: 21300000, guid: 583dcddca6800594abb1c3f6df7aef20, type: 3}
+  - {fileID: 21300000, guid: c937da3d98619c4439ab8d02c0a064db, type: 3}
+  - {fileID: 21300000, guid: 96729f0e07ee86644b7e16628530dd6d, type: 3}
+  - {fileID: 21300000, guid: e6f14e5e023586145b183a559671a1ee, type: 3}
+  - {fileID: 21300000, guid: 73b06a9e8e3ae4e46814f0c953ef3340, type: 3}
+  - {fileID: 21300000, guid: 813da48fdde0edc48b4c1818040c3b9e, type: 3}
+  - {fileID: 21300000, guid: b5bdd9cf3b3d9dc468400bd9c9e9fc48, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - _WallHang
+  - _WallSlide
+  - _Roll
+  - _Death
+  - _SlideFull
+  - _Attack
+  - _Dash
+  - _WallClimb
+  - _CrouchTransition
+  - _WallClimbNoMovement
+  - _AttackNoMovement
+  - _Slide
+  - _Jump
+  - _SlideTransitionEnd
+  - _CrouchFull
+  - _JumpFallInbetween
+  - _CrouchWalk
+  - _CrouchAttack
+  - _TurnAround
+  - _AttackComboNoMovement
+  - _DeathNoMovement
+  - _Idle
+  - _AttackCombo2hit
+  - _SlideTransitionStart
+  - _Run
+  - _Fall
+  - _Crouch
+  - _Attack2NoMovement
+  - _Attack2
+  - _Hit
+  m_RenderDataMap: {}
+  m_Tag: AllUnits
+  m_IsVariant: 0
