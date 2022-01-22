@@ -71,6 +71,16 @@ SpriteAtlas:
   - {fileID: -317049682, guid: d44f0a2c20d3d9545a70d41cae7b0ee7, type: 3}
   - {fileID: 701798875, guid: d44f0a2c20d3d9545a70d41cae7b0ee7, type: 3}
   - {fileID: 442199376, guid: d44f0a2c20d3d9545a70d41cae7b0ee7, type: 3}
+  - {fileID: 858596427, guid: c937da3d98619c4439ab8d02c0a064db, type: 3}
+  - {fileID: -300576647, guid: c937da3d98619c4439ab8d02c0a064db, type: 3}
+  - {fileID: 481855911, guid: c937da3d98619c4439ab8d02c0a064db, type: 3}
+  - {fileID: -1469261806, guid: c937da3d98619c4439ab8d02c0a064db, type: 3}
+  - {fileID: 1932963697, guid: c937da3d98619c4439ab8d02c0a064db, type: 3}
+  - {fileID: -822963402, guid: c937da3d98619c4439ab8d02c0a064db, type: 3}
+  - {fileID: 70827440, guid: c937da3d98619c4439ab8d02c0a064db, type: 3}
+  - {fileID: -729528187, guid: c937da3d98619c4439ab8d02c0a064db, type: 3}
+  - {fileID: 1278645058, guid: c937da3d98619c4439ab8d02c0a064db, type: 3}
+  - {fileID: 1705913989, guid: c937da3d98619c4439ab8d02c0a064db, type: 3}
   m_PackedSpriteNamesToIndex:
   - _Idle_5
   - _Idle_4
@@ -92,6 +102,16 @@ SpriteAtlas:
   - _Idle_2
   - _Idle_9
   - _Idle_8
+  - _Run_8
+  - _Run_9
+  - _Run_0
+  - _Run_1
+  - _Run_2
+  - _Run_3
+  - _Run_4
+  - _Run_5
+  - _Run_6
+  - _Run_7
   m_RenderDataMap: {}
   m_Tag: AllUnits
   m_IsVariant: 0

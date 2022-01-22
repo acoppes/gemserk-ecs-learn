@@ -1,6 +1,9 @@
 ﻿using Gemserk.Ecs.Components;
 using Gemserk.Ecs.Models;
 using Unity.Entities;
+using Unity.Mathematics;
+using UnityEngine;
+using Animation = Gemserk.Ecs.Components.Animation;
 
 namespace Gemserk.Ecs.Systems
 {
@@ -76,6 +79,14 @@ namespace Gemserk.Ecs.Systems
 //        {
 //            PostUpdateCommands.RemoveComponent<AnimationFrameChanged>(e);
 //        });
+
+            Entities
+                .WithAllReadOnly<Movement>()
+                .WithAll<ModelInstance>().ForEach((ModelInstance model, ref Movement movement) => 
+                {
+                    var moving = Vector3.SqrMagnitude(movement.velocity) > 0f;
+                    model.animator.SetBool("walking", moving);
+                });
         
             Entities.WithAllReadOnly<AnimationPlaying>().ForEach((Unity.Entities.Entity e, ref Animation animation) => {
                 var frameTime = 1.0f / animation.fps;

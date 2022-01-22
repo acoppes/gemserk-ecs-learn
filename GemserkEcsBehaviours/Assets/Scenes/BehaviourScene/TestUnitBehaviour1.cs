@@ -52,7 +52,7 @@ public class TestUnitBehaviour1 : EntityBehaviour
             return;
         }
         
-        var p = UnityEngine.Random.insideUnitCircle * 5.0f;
+        var p = UnityEngine.Random.insideUnitCircle * 2.0f;
         AddComponentData(new MovementDestination
         {
             value = new float3(p.x, p.y, 0)
