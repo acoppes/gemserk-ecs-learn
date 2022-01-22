@@ -7,8 +7,8 @@ public class TestUnitBehaviour1 : EntityBehaviour
     {
         public int state = 1;
 
-        public float normalSpeed = 1;
-        public float superSpeed = 3;
+        public float normalSpeed = 0.5f;
+        public float superSpeed = 1.0f;
 
         public float cooldown = 2;
         public float currentTime = 0;
@@ -17,6 +17,8 @@ public class TestUnitBehaviour1 : EntityBehaviour
     public override void OnEntityUpdated(float dt)
     {
         // Debug.Log("hola");
+        
+        // TODO: add idle...
 
         var myContext = GetContext<MyCustomContext>();
         
