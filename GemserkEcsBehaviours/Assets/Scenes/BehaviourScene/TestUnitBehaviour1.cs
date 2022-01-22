@@ -1,3 +1,4 @@
+using Gemserk.Ecs.Components;
 using Unity.Mathematics;
 
 public class TestUnitBehaviour1 : EntityBehaviour

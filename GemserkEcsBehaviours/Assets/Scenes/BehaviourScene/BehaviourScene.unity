@@ -353,7 +353,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1503328986}
   - component: {fileID: 1503328987}
-  - component: {fileID: 1503328988}
   m_Layer: 0
   m_Name: ~SceneController
   m_TagString: Untagged
@@ -388,23 +387,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3401846b99f236a41a224ef907e6636a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _modelManager: {fileID: 1503328988}
---- !u!114 &1503328988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1503328985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dec6cf7d85d3ca4398f27f5b6c6a036, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _models:
-  - Ranger
-  - Sniper
-  - TrollAxeThrower
 --- !u!1 &1891305035
 GameObject:
   m_ObjectHideFlags: 0

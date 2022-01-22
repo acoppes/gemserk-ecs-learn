@@ -1,5 +1,7 @@
+using Gemserk.Ecs.Components;
 using Unity.Entities;
 using UnityEngine;
+using Animation = Gemserk.Ecs.Components.Animation;
 
 public class UnitAuthoring : MonoBehaviour, IConvertGameObjectToEntity
 {
