@@ -7,12 +7,15 @@ public class UnitAuthoring : MonoBehaviour, IConvertGameObjectToEntity
 {
     [SerializeField]
     private EntityBehaviour behaviour;
+
+    [SerializeField]
+    private GameObject modelPrefab;
+
+    [SerializeField]
+    private RuntimeAnimatorController modelController;
+    
     public float speed;
-    
-    public int modelId;
-    public int bodyAttachPoint;
-    public int headAttachPoint;
-    
+
     public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
         dstManager.AddComponentData(entity, new EntityBehaviourComponent
@@ -25,26 +28,9 @@ public class UnitAuthoring : MonoBehaviour, IConvertGameObjectToEntity
         });
         dstManager.AddComponentData(entity, new Model
         {
-            modelId = modelId,
-            bodyAttachPoint = bodyAttachPoint,
-            headAttachPoint = headAttachPoint
+            prefab = modelPrefab,
+            controller = modelController
         });
-        
-        dstManager.AddComponentData(entity, new Animation
-        {
-            fps = 30,
-            state = Animation.State.Stopped
-        });
-
-        dstManager.AddComponentData(entity, new Unit
-        {
-            state = Unit.State.Idle,
-            deathAnimationId = 0,
-            destroyLogic = Unit.DestroyLogic.DestroyOnDeath
-        });
-        
         dstManager.AddComponentData(entity, new LookAt());
-        dstManager.AddComponentData(entity, new AttachPoints());
-        // dstManager.AddComponentData(entity, new Alive());
     }
 }

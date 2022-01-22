@@ -244,10 +244,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviour: {fileID: 7316188364166072181, guid: 1f571c7b948114e4c8bfb23c26f788a8, type: 3}
+  modelPrefab: {fileID: 2092496618434458167, guid: a2611fb082e25c44882ff8dedaca379a, type: 3}
+  modelController: {fileID: 22100000, guid: 14861f8098c8c1e41b40a4388456120c, type: 2}
   speed: 1
-  modelId: 0
-  bodyAttachPoint: 0
-  headAttachPoint: 0
 --- !u!1 &503751130
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +397,7 @@ GameObject:
   - component: {fileID: 1891305038}
   - component: {fileID: 1891305037}
   - component: {fileID: 1891305036}
+  - component: {fileID: 1891305039}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -440,7 +440,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 1
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -471,3 +471,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1891305039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891305035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 100
+  m_RefResolutionX: 320
+  m_RefResolutionY: 180
+  m_UpscaleRT: 1
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0

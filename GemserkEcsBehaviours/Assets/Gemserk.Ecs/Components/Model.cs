@@ -7,16 +7,17 @@ using UnityEngine;
 namespace Gemserk.Ecs.Components
 {
     // model creation!
-    public struct Model : IComponentData
+    public class Model : IComponentData
     {
-        public int modelId;
-        public int bodyAttachPoint;
-        public int headAttachPoint;
-        public int attackAttachPoint;
+        public GameObject prefab;
+        public RuntimeAnimatorController controller;
     }
 
-    public struct ModelInstance : IComponentData
+    public class ModelInstance : IComponentData
     {
+        public GameObject instance;
+        public Animator animator;
+        
         public float3 lookingDirection;
     }
 

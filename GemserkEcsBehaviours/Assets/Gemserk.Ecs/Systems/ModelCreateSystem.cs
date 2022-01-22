@@ -2,29 +2,26 @@
 using Gemserk.Ecs.Models;
 using Unity.Entities;
 using Unity.Transforms;
+using UnityEngine;
 using UnityEngine.Profiling;
 
 namespace Gemserk.Ecs.Systems
 {
     public class ModelCreateSystem : ComponentSystem
     {
-        public IModelManager ModelManager { get; set; }
-    
         protected override void OnUpdate()
         {
-            if (ModelManager == null)
-                return;
-        
-            Entities.WithAll<Components.Model>().WithNone<ModelInstance, ToDestroy>().ForEach((Unity.Entities.Entity e, ref Components.Model model) => {
-                ModelManager.CreateModel(e, model.modelId);
-                // var m = ModelManager.GetModelInstance(e);
-                // m.SetHasShadow(EntityManager.HasComponent<ModelShadow>());
-                // PostUpdateCommands.RemoveComponent<Model>(e);
-            
-                PostUpdateCommands.AddComponent(e, new ModelInstance());
-                PostUpdateCommands.AddSharedComponent(e, new SharedModel
+            Entities.WithAll<Model>().WithNone<ModelInstance, ToDestroy>().ForEach((Entity e, Model model) =>
+            {
+                var instance = GameObject.Instantiate(model.prefab);
+                var animator = instance.GetComponentInChildren<Animator>();
+
+                animator.runtimeAnimatorController = model.controller;
+                
+                PostUpdateCommands.AddComponent(e, new ModelInstance
                 {
-                    instance = ModelManager.GetModelInstance(e)
+                    instance = instance,
+                    animator = animator
                 });
             });
         }
@@ -34,54 +31,28 @@ namespace Gemserk.Ecs.Systems
 //[UpdateBefore(typeof(ModelDestroySystem)), UpdateAfter(typeof(ModelCreateSystem))]
     public class ModelUpdateSystem : ComponentSystem
     {
-//    public IModelManager ModelManager { get; set; }
-    
         protected override void OnUpdate()
         {
-//        if (ModelManager == null)
-//            return;
-        
             Profiler.BeginSample("Model.Position");
-            Entities.ForEach((Unity.Entities.Entity e, ref Translation t, ref ModelInstance m) =>
+            Entities.ForEach((Entity e, ref Translation t, ModelInstance m) =>
             {
-                // convert to IM/KR world perspective
-                //var p = t.Value;
-                //p.y *= 0.75f;
-            
-                // same for looking direction?
-            
-//            var model = ModelManager.GetModelInstance(e);
+                m.instance.transform.localPosition = t.Value;
+                // TODO: looking direction
+                
+                // var model = EntityManager.GetSharedComponentData<SharedModel>(e).instance;
+                // model.SetPosition(t.Value);
+                // model.SetLookingDirection(m.lookingDirection);
+            });
+            Profiler.EndSample();
 
-                var model = EntityManager.GetSharedComponentData<SharedModel>(e).instance;
-            
-                model.SetPosition(t.Value);
-                model.SetLookingDirection(m.lookingDirection);
-            });
-            Profiler.EndSample();
-        
-            Profiler.BeginSample("Model.AttachPoints");
-            Entities.WithAllReadOnly<Alive, ModelInstance>().ForEach(
-                (Unity.Entities.Entity e, ref Translation p, ref AttachPoints target, ref Components.Model m) =>
-                {
-//            var model = ModelManager.GetModelInstance(e);
-                    var model = EntityManager.GetSharedComponentData<SharedModel>(e).instance;
-                    var position = p.Value;
-                    position.z = 0;
-            
-                    target.bodyPosition = position + model.GetAttachPoint(m.bodyAttachPoint);
-                    target.headPosition = position + model.GetAttachPoint(m.headAttachPoint);
-                    target.attackPosition = position + model.GetAttachPoint(m.attackAttachPoint);          
-                });
-            Profiler.EndSample();
-        
-            Profiler.BeginSample("Model.AnimationFrame");
-            Entities.WithAllReadOnly<ModelInstance>().ForEach((Unity.Entities.Entity e, ref Animation animation) =>
-            {
-//            var model = ModelManager.GetModelInstance(e);
-                var model = EntityManager.GetSharedComponentData<SharedModel>(e).instance;
-                model.SetAnimationFrame(animation.animationId, animation.currentFrame);
-            });
-            Profiler.EndSample();
+//             Profiler.BeginSample("Model.AnimationFrame");
+//             Entities.WithAllReadOnly<ModelInstance>().ForEach((Entity e, ref Animation animation) =>
+//             {
+// //            var model = ModelManager.GetModelInstance(e);
+//                 var model = EntityManager.GetSharedComponentData<SharedModel>(e).instance;
+//                 model.SetAnimationFrame(animation.animationId, animation.currentFrame);
+//             });
+//             Profiler.EndSample();
         }
     }
 

@@ -9,7 +9,7 @@ namespace Gemserk.Ecs.Systems
     {
         protected override void OnUpdate()
         {
-            Entities.WithAllReadOnly<Translation>().ForEach((Unity.Entities.Entity e, ref LookAt lookAt, ref ModelInstance m) => {
+            Entities.WithAllReadOnly<Translation>().ForEach((Entity e, ref LookAt lookAt, ModelInstance m) => {
                 m.lookingDirection = lookAt.direction;
             });
         }
