@@ -17,12 +17,12 @@ namespace TheGame
     
         public float speed;
 
-        public bool controlledByPlayer;
         public int player;
+        public GameObject playerInputPrefab;
 
         public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
         {
-            if (behaviour != null && !controlledByPlayer)
+            if (behaviour != null && playerInputPrefab == null)
             {
                 dstManager.AddComponentData(entity, new EntityBehaviourComponent
                 {
@@ -41,10 +41,11 @@ namespace TheGame
             });
             dstManager.AddComponentData(entity, new LookAt());
 
-            if (controlledByPlayer)
+            if (playerInputPrefab != null)
             {
                 dstManager.AddComponentData(entity, new ControlledByPlayer
                 {
+                    playerInputPrefab = playerInputPrefab,
                     player = player
                 });
             }

@@ -247,8 +247,8 @@ MonoBehaviour:
   modelPrefab: {fileID: 2092496618434458167, guid: a2611fb082e25c44882ff8dedaca379a, type: 3}
   modelController: {fileID: 22100000, guid: 14861f8098c8c1e41b40a4388456120c, type: 2}
   speed: 1.25
-  controlledByPlayer: 1
   player: 0
+  playerInputPrefab: {fileID: 7143958169021667008, guid: d475aca6ebafa7946a4d7e84f4541a35, type: 3}
 --- !u!1 &667420928
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,8 +283,8 @@ MonoBehaviour:
   modelPrefab: {fileID: 2092496618434458167, guid: a2611fb082e25c44882ff8dedaca379a, type: 3}
   modelController: {fileID: 22100000, guid: 2f9946db06778db4d906eea98ae00b1e, type: 2}
   speed: 1.25
-  controlledByPlayer: 1
   player: 1
+  playerInputPrefab: {fileID: 7143958169021667008, guid: d475aca6ebafa7946a4d7e84f4541a35, type: 3}
 --- !u!114 &667420930
 MonoBehaviour:
   m_ObjectHideFlags: 0

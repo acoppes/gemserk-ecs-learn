@@ -1,7 +1,7 @@
 using Gemserk.Ecs.Components;
 using Unity.Entities;
 using Unity.Mathematics;
-using Unity.Transforms;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Gemserk.Ecs.Systems
@@ -12,43 +12,26 @@ namespace Gemserk.Ecs.Systems
         protected override void OnUpdate()
         {
             Entities.WithAllReadOnly<ControlledByPlayer>()
-                .ForEach((ref Movement m, ref ControlledByPlayer c) =>
+                .ForEach((ref Movement m, ControlledByPlayer c) =>
                 {
-                    var movingDirection = new float3();
-                    
-                    if (c.player == 0)
+
+                    if (c.playerInputInstance == null)
                     {
-                        if (Keyboard.current != null)
-                        {
-                            if (Keyboard.current.wKey.isPressed)
-                            {
-                                movingDirection.y += 1.0f;
-                            }
-
-                            if (Keyboard.current.sKey.isPressed)
-                            {
-                                movingDirection.y -= 1.0f;
-                            }
-
-                            if (Keyboard.current.aKey.isPressed)
-                            {
-                                movingDirection.x -= 1.0f;
-                            }
-
-                            if (Keyboard.current.dKey.isPressed)
-                            {
-                                movingDirection.x += 1.0f;
-                            }
-                        }
-                    } else if (c.player == 1)
-                    {
-                        if (Gamepad.current != null)
-                        {
-                            var v = Gamepad.current.leftStick.ReadValue();
-                            movingDirection = new float3(v.x, v.y, 0);
-                        }
+                        c.playerInputInstance = PlayerInput.Instantiate(c.playerInputPrefab, c.player, 
+                            "Default", -1, 
+                            Keyboard.current, Gamepad.current);
+                        c.playerInputInstance.ActivateInput();
+                        
+                        c.playerInputInstance.SwitchCurrentActionMap($"Player_{c.player}");
                     }
                     
+                    var movingDirection = new float3();
+
+                    var move = c.playerInputInstance.actions["Move"];
+                    
+                    var v = move.ReadValue<Vector2>();
+                    movingDirection = new float3(v.x, v.y, 0);
+
                     m.velocityDifference = math.normalizesafe(movingDirection) * Time.DeltaTime;
                 });
             
