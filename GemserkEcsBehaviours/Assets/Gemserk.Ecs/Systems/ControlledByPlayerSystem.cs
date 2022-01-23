@@ -17,12 +17,19 @@ namespace Gemserk.Ecs.Systems
 
                     if (c.playerInputInstance == null)
                     {
-                        c.playerInputInstance = PlayerInput.Instantiate(c.playerInputPrefab, c.player, 
-                            "Default", -1, 
-                            Keyboard.current, Gamepad.current);
-                        c.playerInputInstance.ActivateInput();
+                        InputDevice device = Keyboard.current;
+
+                        if (c.player == 1)
+                        {
+                            device = Gamepad.current;
+                        }
                         
+                        c.playerInputInstance = PlayerInput.Instantiate(c.playerInputPrefab, c.player);
                         c.playerInputInstance.SwitchCurrentActionMap($"Player_{c.player}");
+                        c.playerInputInstance.SwitchCurrentControlScheme("Default", device);
+
+                        // c.playerInputInstance.ActivateInput();
+
                     }
                     
                     var movingDirection = new float3();
