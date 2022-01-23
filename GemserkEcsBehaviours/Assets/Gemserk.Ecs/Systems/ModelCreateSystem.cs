@@ -1,8 +1,6 @@
 ﻿using Gemserk.Ecs.Components;
 using Unity.Entities;
-using Unity.Transforms;
 using UnityEngine;
-using UnityEngine.Profiling;
 
 namespace Gemserk.Ecs.Systems
 {
@@ -22,20 +20,6 @@ namespace Gemserk.Ecs.Systems
                     model = unitModel
                 });
             });
-        }
-    }
-
-    [UpdateAfter(typeof(ModelCreateSystem))]
-    public class ModelUpdateSystem : ComponentSystem
-    {
-        protected override void OnUpdate()
-        {
-            Profiler.BeginSample("Model.Position");
-            Entities.ForEach((Entity e, ref Translation t, ModelInstance m) =>
-            {
-                m.model.transform.localPosition = t.Value;
-            });
-            Profiler.EndSample();
         }
     }
 }
