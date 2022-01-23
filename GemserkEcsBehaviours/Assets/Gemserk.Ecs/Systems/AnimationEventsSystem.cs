@@ -9,7 +9,7 @@ namespace Gemserk.Ecs.Systems
     {
         protected override void OnUpdate()
         {
-            Entities.WithAll<DestroyAtFrameEnd>().ForEach((Unity.Entities.Entity e) => {
+            Entities.WithAll<DestroyAtFrameEnd>().ForEach((Entity e) => {
                 // post in another system?
                 PostUpdateCommands.DestroyEntity(e);
             });

@@ -10,7 +10,7 @@ namespace Gemserk.Ecs.Systems
         {
             Entities.WithAll<Model>().WithNone<ModelInstance, ToDestroy>().ForEach((Entity e, Model model) =>
             {
-                var instance = GameObject.Instantiate(model.prefab);
+                var instance = Object.Instantiate(model.prefab);
                 var unitModel = instance.GetComponentInChildren<UnitModel>();
 
                 unitModel.animator.runtimeAnimatorController = model.controller;

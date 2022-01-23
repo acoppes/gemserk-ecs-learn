@@ -8,7 +8,7 @@ namespace Gemserk.Ecs.Systems
     {
         protected override void OnUpdate()
         {
-            Entities.WithAll<Alive>().ForEach((Unity.Entities.Entity e, ref Orders order, ref Movement movement, ref Translation t, ref Attack attack) => {
+            Entities.WithAll<Alive>().ForEach((Entity e, ref Orders order, ref Movement movement, ref Translation t, ref Attack attack) => {
 
                 // TODO: here or on unit system 
                 if (order.currentOrder == Orders.Order.Move)
@@ -30,7 +30,7 @@ namespace Gemserk.Ecs.Systems
 
                     attack.target = new Target()
                     {
-                        entity = Unity.Entities.Entity.Null
+                        entity = Entity.Null
                     };
                 }
                 else if (order.currentOrder == Orders.Order.Stop)
@@ -39,7 +39,7 @@ namespace Gemserk.Ecs.Systems
                     PostUpdateCommands.RemoveComponent<MovementDestination>(e);
                     attack.target = new Target
                     {
-                        entity = Unity.Entities.Entity.Null
+                        entity = Entity.Null
                     };
                 }
                 else if (order.currentOrder == Orders.Order.Attack)

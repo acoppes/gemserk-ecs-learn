@@ -9,7 +9,7 @@ namespace Gemserk.Ecs.Systems
     {
         protected override void OnUpdate()
         {
-            Entities.ForEach((Unity.Entities.Entity e, ref AnimationCompletedEvent cEvent) => {
+            Entities.ForEach((Entity e, ref AnimationCompletedEvent cEvent) => {
                 // post in another system?
 
                 if (!EntityManager.HasComponent<Unit>(cEvent.entity))
@@ -33,7 +33,7 @@ namespace Gemserk.Ecs.Systems
     {
         protected override void OnUpdate()
         {
-            Entities.WithAllReadOnly<Alive, ModelInstance>().ForEach((Unity.Entities.Entity e, ref Attack attack, ref Health health, ref Unit state, ref Movement movement) => {
+            Entities.WithAllReadOnly<Alive, ModelInstance>().ForEach((Entity e, ref Attack attack, ref Health health, ref Unit state, ref Movement movement) => {
 
                 if (health.current <= 0)
                 {
@@ -48,7 +48,7 @@ namespace Gemserk.Ecs.Systems
 
                     PostUpdateCommands.RemoveComponent<Alive>(e);
                 }
-                else if (attack.target.entity != Unity.Entities.Entity.Null)
+                else if (attack.target.entity != Entity.Null)
                 {
                     if (state.state != Unit.State.Attacking)
                     {

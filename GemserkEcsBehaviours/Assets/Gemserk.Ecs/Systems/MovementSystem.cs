@@ -43,13 +43,13 @@ namespace Gemserk.Ecs.Systems
         }
     
         //[BurstCompile]
-        struct MovementDestinationReachedJob : IJobForEachWithEntity<MovementDestination>
+        private struct MovementDestinationReachedJob : IJobForEachWithEntity<MovementDestination>
         {
             // [ReadOnly]
 //        [NativeDisableParallelForRestriction]
             public EntityCommandBuffer.ParallelWriter buffer;
 
-            public void Execute(Unity.Entities.Entity entity, int index, [ReadOnly] ref MovementDestination destination)
+            public void Execute(Entity entity, int index, [ReadOnly] ref MovementDestination destination)
             {
                 if (destination.distanceSq > destinationDistance)
                     return;

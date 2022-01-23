@@ -15,19 +15,4 @@ namespace Gemserk.Ecs.Components
         public float3 value;
         public float distanceSq;
     }
-
-    public class MovementDesignConversionSystem : GameObjectConversionSystem
-    {
-        protected override void OnUpdate()
-        {
-            Entities.ForEach((MovementDesign m) =>
-            {
-                var entity = GetPrimaryEntity(m);
-                DstEntityManager.AddComponentData(entity, new Movement
-                {
-                    speed = m.speed
-                });
-            });
-        }
-    }
 }

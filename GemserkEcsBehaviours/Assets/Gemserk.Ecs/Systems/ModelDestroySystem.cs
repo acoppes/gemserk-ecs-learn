@@ -10,7 +10,7 @@ namespace Gemserk.Ecs.Systems
         protected override void OnUpdate()
         {
             Entities.WithAllReadOnly<ModelInstance, ToDestroy>().ForEach((ModelInstance m) => {
-                GameObject.Destroy(m.model.gameObject);
+                Object.Destroy(m.model.gameObject);
             });
         }
     }

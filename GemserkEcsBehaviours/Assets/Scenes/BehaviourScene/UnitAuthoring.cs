@@ -18,10 +18,14 @@ public class UnitAuthoring : MonoBehaviour, IConvertGameObjectToEntity
 
     public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
-        dstManager.AddComponentData(entity, new EntityBehaviourComponent
+        if (behaviour != null)
         {
-            behaviour = behaviour
-        });
+            dstManager.AddComponentData(entity, new EntityBehaviourComponent
+            {
+                behaviour = behaviour
+            });
+        }
+        
         dstManager.AddComponentData(entity, new Movement
         {
             speed = speed
