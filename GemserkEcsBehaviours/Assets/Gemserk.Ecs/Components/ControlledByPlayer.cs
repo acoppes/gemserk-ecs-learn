@@ -4,6 +4,6 @@ namespace Gemserk.Ecs.Components
 {
     public struct ControlledByPlayer : IComponentData
     {
-        
+        public int player;
     }
 }

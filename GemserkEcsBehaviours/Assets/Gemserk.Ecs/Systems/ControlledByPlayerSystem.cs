@@ -11,29 +11,42 @@ namespace Gemserk.Ecs.Systems
     {
         protected override void OnUpdate()
         {
-            Entities.WithAll<ControlledByPlayer>()
-                .ForEach((ref Movement m) =>
+            Entities.WithAllReadOnly<ControlledByPlayer>()
+                .ForEach((ref Movement m, ref ControlledByPlayer c) =>
                 {
                     var movingDirection = new float3();
+                    
+                    if (c.player == 0)
+                    {
+                        if (Keyboard.current != null)
+                        {
+                            if (Keyboard.current.wKey.isPressed)
+                            {
+                                movingDirection.y += 1.0f;
+                            }
 
-                    if (Keyboard.current.wKey.isPressed)
+                            if (Keyboard.current.sKey.isPressed)
+                            {
+                                movingDirection.y -= 1.0f;
+                            }
+
+                            if (Keyboard.current.aKey.isPressed)
+                            {
+                                movingDirection.x -= 1.0f;
+                            }
+
+                            if (Keyboard.current.dKey.isPressed)
+                            {
+                                movingDirection.x += 1.0f;
+                            }
+                        }
+                    } else if (c.player == 1)
                     {
-                        movingDirection.y += 1.0f;
-                    }
-                    
-                    if (Keyboard.current.sKey.isPressed)
-                    {
-                        movingDirection.y -= 1.0f;
-                    }
-                    
-                    if (Keyboard.current.aKey.isPressed)
-                    {
-                        movingDirection.x -= 1.0f;
-                    }
-                    
-                    if (Keyboard.current.dKey.isPressed)
-                    {
-                        movingDirection.x += 1.0f;
+                        if (Gamepad.current != null)
+                        {
+                            var v = Gamepad.current.leftStick.ReadValue();
+                            movingDirection = new float3(v.x, v.y, 0);
+                        }
                     }
                     
                     m.velocityDifference = math.normalizesafe(movingDirection) * Time.DeltaTime;

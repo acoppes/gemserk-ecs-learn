@@ -61,6 +61,16 @@ SpriteAtlas:
   - {fileID: 1159978421, guid: 39904d81306e35b48abda324d1e75ce5, type: 3}
   - {fileID: -1921692606, guid: 39904d81306e35b48abda324d1e75ce5, type: 3}
   - {fileID: -125932045, guid: 39904d81306e35b48abda324d1e75ce5, type: 3}
+  - {fileID: -116776163, guid: a37ff532ba9d0884e89b2da31f36a91a, type: 3}
+  - {fileID: 1733212101, guid: a37ff532ba9d0884e89b2da31f36a91a, type: 3}
+  - {fileID: 106358162, guid: a37ff532ba9d0884e89b2da31f36a91a, type: 3}
+  - {fileID: -1945322014, guid: a37ff532ba9d0884e89b2da31f36a91a, type: 3}
+  - {fileID: 998232557, guid: a37ff532ba9d0884e89b2da31f36a91a, type: 3}
+  - {fileID: 1109319606, guid: a37ff532ba9d0884e89b2da31f36a91a, type: 3}
+  - {fileID: 591285494, guid: a37ff532ba9d0884e89b2da31f36a91a, type: 3}
+  - {fileID: 1920673847, guid: a37ff532ba9d0884e89b2da31f36a91a, type: 3}
+  - {fileID: 1385409369, guid: a37ff532ba9d0884e89b2da31f36a91a, type: 3}
+  - {fileID: 1233382600, guid: a37ff532ba9d0884e89b2da31f36a91a, type: 3}
   - {fileID: 2075207793, guid: d44f0a2c20d3d9545a70d41cae7b0ee7, type: 3}
   - {fileID: -879646888, guid: d44f0a2c20d3d9545a70d41cae7b0ee7, type: 3}
   - {fileID: -1277461450, guid: d44f0a2c20d3d9545a70d41cae7b0ee7, type: 3}
@@ -92,6 +102,16 @@ SpriteAtlas:
   - _Idle_2
   - _Idle_9
   - _Idle_8
+  - _Run_8
+  - _Run_9
+  - _Run_0
+  - _Run_1
+  - _Run_2
+  - _Run_3
+  - _Run_4
+  - _Run_5
+  - _Run_6
+  - _Run_7
   - _Idle_5
   - _Idle_4
   - _Idle_7
