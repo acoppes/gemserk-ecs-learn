@@ -11,15 +11,14 @@ namespace Gemserk.Ecs.Systems
     {
         protected override void OnUpdate()
         {
-            Entities.WithAllReadOnly<ControlledByPlayer>()
-                .ForEach((ref Movement m, ControlledByPlayer c) =>
+            Entities
+                .ForEach((ControlledByPlayer c) =>
                 {
-
                     if (c.playerInputInstance == null)
                     {
                         InputDevice device = Keyboard.current;
 
-                        if (c.player == 1)
+                        if (c.player == 1 && Gamepad.current != null)
                         {
                             device = Gamepad.current;
                         }
@@ -27,11 +26,12 @@ namespace Gemserk.Ecs.Systems
                         c.playerInputInstance = PlayerInput.Instantiate(c.playerInputPrefab, c.player);
                         c.playerInputInstance.SwitchCurrentActionMap($"Player_{c.player}");
                         c.playerInputInstance.SwitchCurrentControlScheme("Default", device);
-
-                        // c.playerInputInstance.ActivateInput();
-
                     }
-                    
+                });
+            
+            Entities
+                .ForEach((ref Movement m, ControlledByPlayer c) =>
+                {
                     var movingDirection = new float3();
 
                     var move = c.playerInputInstance.actions["Move"];
