@@ -16,9 +16,11 @@ public class UnitAuthoring : MonoBehaviour, IConvertGameObjectToEntity
     
     public float speed;
 
+    public bool controlledByPlayer;
+
     public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
-        if (behaviour != null)
+        if (behaviour != null && !controlledByPlayer)
         {
             dstManager.AddComponentData(entity, new EntityBehaviourComponent
             {
@@ -36,5 +38,10 @@ public class UnitAuthoring : MonoBehaviour, IConvertGameObjectToEntity
             controller = modelController
         });
         dstManager.AddComponentData(entity, new LookAt());
+
+        if (controlledByPlayer)
+        {
+            dstManager.AddComponentData(entity, new ControlledByPlayer());
+        }
     }
 }

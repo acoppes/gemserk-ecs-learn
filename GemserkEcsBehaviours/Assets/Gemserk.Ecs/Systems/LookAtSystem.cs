@@ -24,12 +24,6 @@ namespace Gemserk.Ecs.Systems
                 .ForEach((ref LookAt lookAt, ref MovementDestination movement, ref Translation t) => {
                     lookAt.direction = movement.value - t.Value;
                 });
-       
-            /*
-        Entities.WithNone<Alive>().ForEach((ref LookAt lookAt, ref Movement movement, ref Translation t) => {
-            lookAt.direction = movement.velocity;
-        });
-        */
         }
     }
 }
