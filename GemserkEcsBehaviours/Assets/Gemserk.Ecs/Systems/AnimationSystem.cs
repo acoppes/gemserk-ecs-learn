@@ -15,6 +15,16 @@ namespace Gemserk.Ecs.Systems
                     var moving = Vector3.SqrMagnitude(movement.velocity) > 0f;
                     model.model.animator.SetBool("walking", moving);
                 });
+            
+            Entities
+                .WithAllReadOnly<Attack>()
+                .WithAll<ModelInstance>().ForEach((ModelInstance model, ref Attack attack) => 
+                {
+                    if (attack.attacking)
+                    {
+                        model.model.animator.SetTrigger("attack");    
+                    }
+                });
         }
     }
 }

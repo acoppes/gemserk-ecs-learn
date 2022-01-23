@@ -43,6 +43,13 @@ namespace Gemserk.Ecs.Systems
                 });
             
             Entities
+                .ForEach((ref Attack a, ControlledByPlayer c) =>
+                {
+                    var attackAction = c.playerInputInstance.actions["Attack"];
+                    a.attacking = attackAction.WasPressedThisFrame();
+                });
+            
+            Entities
                 .WithAll<ControlledByPlayer>()
                 .WithNone<MovementDestination>()
                 .ForEach((ref LookAt lookAt, ref Movement m) =>

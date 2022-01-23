@@ -49,6 +49,7 @@ namespace TheGame
                     player = player
                 });
             }
+            dstManager.AddComponentData(entity, new Attack());
         }
     }
 }
