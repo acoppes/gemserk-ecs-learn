@@ -46,7 +46,7 @@ namespace Gemserk.Ecs.Systems
                 .ForEach((ref Attack a, ControlledByPlayer c) =>
                 {
                     var attackAction = c.playerInputInstance.actions["Attack"];
-                    a.attacking = attackAction.WasPressedThisFrame();
+                    a.attackPressed = attackAction.WasPressedThisFrame();
                 });
             
             Entities

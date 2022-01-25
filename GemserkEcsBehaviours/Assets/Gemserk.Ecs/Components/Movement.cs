@@ -8,6 +8,8 @@ namespace Gemserk.Ecs.Components
         public float3 velocity;
         public float speed;
         public float3 velocityDifference;
+
+        public bool disable;
     }
 
     public struct MovementDestination : IComponentData

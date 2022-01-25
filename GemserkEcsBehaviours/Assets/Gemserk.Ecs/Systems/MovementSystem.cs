@@ -28,7 +28,7 @@ namespace Gemserk.Ecs.Systems
                 difference.z = 0;
                 movement.velocityDifference = math.normalize(difference) * dt;
                 movementDestination.distanceSq = math.lengthsq(difference);
-            }
+           }
         }
     
         [BurstCompile]
@@ -37,7 +37,10 @@ namespace Gemserk.Ecs.Systems
             public void Execute(ref Movement movement, ref Translation translation)
             {
                 movement.velocity = movement.velocityDifference * movement.speed;
-                translation.Value += movement.velocity;
+                if (!movement.disable)
+                {
+                    translation.Value += movement.velocity;
+                }
                 movement.velocityDifference = float3.zero;
             }
         }

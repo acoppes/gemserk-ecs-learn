@@ -17,13 +17,14 @@ namespace Gemserk.Ecs.Systems
                 });
             
             Entities
-                .WithAllReadOnly<Attack>()
                 .WithAll<ModelInstance>().ForEach((ModelInstance model, ref Attack attack) => 
                 {
-                    if (attack.attacking)
+                    if (attack.attackPressed)
                     {
                         model.model.animator.SetTrigger("attack");    
                     }
+
+                    attack.attacking = model.model.animator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
                 });
         }
     }
